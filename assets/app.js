@@ -10,8 +10,7 @@ function renderPeriodo(){
  if(!lastData)return;
  const key=periodo==='mes'?'mes':periodo==='semana'?'semana':'data';
  const rows=periodo==='mes'?lastData.mensal:periodo==='semana'?lastData.semanal:lastData.diario;
- const totals=periodo==='mes'?lastData.mensal_total:periodo==='semana'?lastData.semanal_total:lastData.diario_total;
- const groups=totals?.length?totals.flatMap(t=>[{...t,unidade:''},...rows.filter(r=>r[key]===t[key])]):rows;
+ const groups=rows;
  const label=periodo==='mes'?'Mês':periodo==='semana'?'Semana (segunda a domingo)':'Dia';
  $('mensal').innerHTML=table(groups,[[key,label,v=>periodo==='mes'?v.slice(5,7)+'/'+v.slice(0,4):periodo==='semana'?day(v)+' a '+day(new Date(Date.parse(v+'T12:00:00Z')+6*86400000).toISOString().slice(0,10)):day(v)],...summary.slice(0,5)]);
  document.querySelectorAll('[data-periodo]').forEach(b=>{const active=b.dataset.periodo===periodo;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
