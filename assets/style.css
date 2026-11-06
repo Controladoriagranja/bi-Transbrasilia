@@ -25,3 +25,5 @@ body.pcp-report .page-header button[data-theme-toggle]{position:static!important
 #observacoesDia{width:min(1000px,calc(100vw - 32px))}#observacoesDiaConteudo{overflow:auto;max-height:65vh}#observacoesDiaConteudo p{white-space:pre-wrap}#observacoesDia .panel-head h2{font-size:16px;color:var(--primary)}
 
 #observacoesDia{width:auto;margin-top:16px}#observacoesDia[hidden]{display:none}
+
+.period-observations>td{padding:16px!important;background:var(--surface,#fff)!important;text-align:left!important}.period-observations-body{overflow:auto;max-height:420px}.period-observations-body h3{font-size:14px;color:var(--primary);margin:0 0 12px}.period-observations-body p{white-space:pre-wrap}
