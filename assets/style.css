@@ -23,3 +23,5 @@ body.pcp-report .page-header button[data-theme-toggle]{position:static!important
 .mortality-chart-actions{display:flex;align-items:center;justify-content:flex-end;gap:12px;flex-wrap:wrap}.mortality-chart-actions .periodo-toggle{margin:0}.mortality-chart-actions .formula-button{flex:0 0 36px}@media(max-width:767px){.panel-head:has(.mortality-chart-actions){flex-wrap:wrap}.mortality-chart-actions{margin-left:auto}}
 
 #observacoesDia{width:min(1000px,calc(100vw - 32px))}#observacoesDiaConteudo{overflow:auto;max-height:65vh}#observacoesDiaConteudo p{white-space:pre-wrap}#observacoesDia .panel-head h2{font-size:16px;color:var(--primary)}
+
+#observacoesDia{width:auto;margin-top:16px}#observacoesDia[hidden]{display:none}
