@@ -13,3 +13,12 @@ Dados e regras validados em 09/11/2026:
 Importação de referência: PortalBI/BI_Transbrasilia_novo/etl/ocupacao_store.py. Tabelas ocupacao_base e ocupacao_capacidades; view ocupacao_dados. Reimportação do mesmo arquivo substitui somente a referência dele, sem duplicar linhas.
 
 Pendência: o pacote de pesagem recebido exige interação no navegador e uma operação válida por tipo. O formulário wfr200d4 / menu 23991 / unidade 053 foi localizado, porém a troca de tipo por HTTP retornou Erro Processamento. A coleta de Ração e Grãos não foi agendada sem validação. A cobertura histórica é exibida explicitamente na tela. O robô de movimentação existente não foi substituído pelo ZIP recebido.
+
+## Histórico oficial de pesagem (09/11/2026)
+O formulário foi validado com os cabeçalhos Origin/Referer corretos. O erro anterior de preparação por HTTP foi resolvido. Robô integrado: Agrosys_Extractor/Transbrasilia/robo_pesagem_dupla.py, tipos 1 e 3, unidade 053, todas as operações, data de pesagem, canceladas desmarcadas. Ele confirma arquivo, unidade, período e tipo, grava processo e retoma sem duplicar pedido.
+
+Coleta histórica em duas contas paralelas: Automacao/Agenda_2h/historico_ocupacao_20261109.py. Meses de janeiro a 08/11/2026; falhas são registradas no Telegram e tentadas novamente ao final. O histórico de Frango já existente foi conferido e é reutilizado. Atualizações periódicas permanecem pausadas por solicitação do usuário.
+
+Importações oficiais são atômicas por modalidade/período, com registro em ocupacao_cargas e cópia de segurança dos registros substituídos. Capacidades históricas conhecidas são preservadas por pesagem; novos registros usam cadastro de capacidade e as exclusões da referência. O relatório informa o avanço da cobertura Agrosys por modalidade.
+
+Gráfico alinhado à Movimentação de Aves: Frango separado por Ave Nova e Real Alimentos, pontos preenchidos, rótulos percentuais de duas casas, rolagem somente quando necessária, clique no ponto ou eixo temporal filtrando o detalhe. A tabela de períodos fica em painel separado. A tela atualiza a cada 60 segundos sem perder filtros.
