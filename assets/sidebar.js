@@ -5,7 +5,7 @@
 (() => {
     const current = document.body.dataset.page || "";
 
-    const items = [{id:"areas",label:"Movimentação Detalhada de Aves",href:"index.html"}];
+    const items = [{id:"areas",label:"Movimentação Detalhada de Aves",href:"index.html"},{id:"ocupacao",label:"Ocupação Modal",href:"ocupacao.html"}];
 
     const root = document.createElement("div");
     root.className = "side-nav-root";
