@@ -22,3 +22,10 @@ Coleta histórica em duas contas paralelas: Automacao/Agenda_2h/historico_ocupac
 Importações oficiais são atômicas por modalidade/período, com registro em ocupacao_cargas e cópia de segurança dos registros substituídos. Capacidades históricas conhecidas são preservadas por pesagem; novos registros usam cadastro de capacidade e as exclusões da referência. O relatório informa o avanço da cobertura Agrosys por modalidade.
 
 Gráfico alinhado à Movimentação de Aves: Frango separado por Ave Nova e Real Alimentos, pontos preenchidos, rótulos percentuais de duas casas, rolagem somente quando necessária, clique no ponto ou eixo temporal filtrando o detalhe. A tabela de períodos fica em painel separado. A tela atualiza a cada 60 segundos sem perder filtros.
+
+
+## Regra de Ração — 09/11/2026
+
+A coleta continua obtendo todas as operações para auditoria. O indicador inclui somente operações de remessa de ração (`REM.RACAO ...`), com as placas e capacidades cadastradas. Devoluções e sobras ficam armazenadas, identificadas e excluídas tanto da carga quanto da capacidade. A regra é uniforme de janeiro em diante; o resumo digitado no Excel não é usado como dado de entrada. A capacidade não se repete nas linhas da mesma pesagem. Meta: 96,00%.
+
+Histórico classificado por operação e conferido com a origem. Julho: 15.460.276 / 15.764.000 = 98,07%; agosto: 97,23%; setembro: 97,22%. Auditoria e backup anteriores à alteração em `C:\BI_Granja\Logs\Transbrasilia_Ocupacao_20261109`.
