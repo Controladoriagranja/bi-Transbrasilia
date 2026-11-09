@@ -27,3 +27,6 @@ body.pcp-report .page-header button[data-theme-toggle]{position:static!important
 #observacoesDia{width:auto;margin-top:16px}#observacoesDia[hidden]{display:none}
 
 .period-observations>td{padding:16px!important;background:var(--surface,#fff)!important;text-align:left!important}.period-observations-body{overflow:auto;max-height:420px}.period-observations-body h3{font-size:14px;color:var(--primary);margin:0 0 12px}.period-observations-body p{white-space:pre-wrap}
+
+/* Compact status and source notices between filters and indicators. */
+body.pcp-report #estado{margin:6px 0!important;padding:0!important;min-height:0!important;line-height:1.35}body.pcp-report #pendencias{margin:4px 0 8px!important;padding:5px 8px!important;min-height:0!important;line-height:1.35}body.pcp-report #conteudo{margin-top:0!important;padding-top:0!important}
