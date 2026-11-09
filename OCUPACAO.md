@@ -24,8 +24,8 @@ Importações oficiais são atômicas por modalidade/período, com registro em o
 Gráfico alinhado à Movimentação de Aves: Frango separado por Ave Nova e Real Alimentos, pontos preenchidos, rótulos percentuais de duas casas, rolagem somente quando necessária, clique no ponto ou eixo temporal filtrando o detalhe. A tabela de períodos fica em painel separado. A tela atualiza a cada 60 segundos sem perder filtros.
 
 
-## Regra de Ração — 09/11/2026
+## Regra de Ração — fórmula aplicada em 09/11/2026
 
-A coleta continua obtendo todas as operações para auditoria. O indicador inclui somente operações de remessa de ração (`REM.RACAO ...`), com as placas e capacidades cadastradas. Devoluções e sobras ficam armazenadas, identificadas e excluídas tanto da carga quanto da capacidade. A regra é uniforme de janeiro em diante; o resumo digitado no Excel não é usado como dado de entrada. A capacidade não se repete nas linhas da mesma pesagem. Meta: 96,00%.
+Conforme escolha final do usuário, aplicar soma do peso líquido / soma da capacidade para o período e as placas não excluídas (equivalente ao mês em D e E vazia na planilha). Não filtrar operações de remessa separadamente. Devoluções e sobras entram quando atendem aos mesmos critérios. Numerador e denominador usam o mesmo recorte. Capacidades zeradas e exclusões cadastradas são preservadas. Os dados vêm do Agrosys; percentuais digitados manualmente no resumo do Excel não são usados. Meta 96,00%.
 
-Histórico classificado por operação e conferido com a origem. Julho: 15.460.276 / 15.764.000 = 98,07%; agosto: 97,23%; setembro: 97,22%. Auditoria e backup anteriores à alteração em `C:\BI_Granja\Logs\Transbrasilia_Ocupacao_20261109`.
+As fontes não têm o mesmo conteúdo em todos os meses: o Agrosys inclui registros ausentes no Excel enviado. Aplicar a mesma fórmula não garante igualdade de resultados entre bases diferentes. Janeiro: 97,65%; fevereiro: 94,45%; março: 89,56%. A antiga restrição somente a remessas foi retirada do histórico e do importador. Auditoria e backup em C:\BI_Granja\Logs\Transbrasilia_Ocupacao_20261109.
