@@ -13,10 +13,9 @@ window.exportExcel=(filename,headers,rows)=>{
  const header=(length,values)=>{const b=new Uint8Array(length),d=new DataView(b.buffer);for(const[o,v,size]of values)d[size===2?'setUint16':'setUint32'](o,v,true);return b;};
  const parts=[],central=[];let offset=0,centralSize=0;
  for(const[name,value]of Object.entries(files)){const n=enc.encode(name),b=enc.encode(value),c=crc(b),local=header(30,[[0,0x04034b50,4],[4,20,2],[14,c,4],[18,b.length,4],[22,b.length,4],[26,n.length,2]]),dir=header(46,[[0,0x02014b50,4],[4,20,2],[6,20,2],[16,c,4],[20,b.length,4],[24,b.length,4],[28,n.length,2],[42,offset,4]]);parts.push(local,n,b);central.push(dir,n);offset+=local.length+n.length+b.length;centralSize+=dir.length+n.length;}
- const count=Object.keys(files).length,end=header(22,[[0,0x06054b50,4],[8,count,2],[10,count,2],[12,centralSize,4],[16,offset,4]]),url=URL.createObjectURL(new Blob([...parts,...central,end],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'})),a=document.createElement('a');a.href=url;a.download=filename+'.xlsx';a.textContent='Salvar Excel';a.className='export-excel export-save-link';
- const active=document.activeElement,holder=active?.closest('.mortality-chart-actions');
- if(holder){holder.querySelector('.export-save-link')?.remove();holder.append(a);}else document.body.append(a);
- if(window.parent!==window){const id='excel-'+Date.now()+'-'+Math.random().toString(16).slice(2);let acknowledged=false;const listener=e=>{if(e.source===window.parent&&e.data?.type==='bi:excel-saved'&&e.data.id===id){acknowledged=true;window.removeEventListener('message',listener);}};window.addEventListener('message',listener);fetch(url).then(r=>r.arrayBuffer()).then(buffer=>window.parent.postMessage({type:'bi:excel-download',id,filename:filename+'.xlsx',buffer},'*',[buffer]));setTimeout(()=>{window.removeEventListener('message',listener);if(!acknowledged)a.click();},750);}else a.click();
- // Keep the explicit save link usable until the next export/page close.
-
+ const count=Object.keys(files).length,end=header(22,[[0,0x06054b50,4],[8,count,2],[10,count,2],[12,centralSize,4],[16,offset,4]]),url=URL.createObjectURL(new Blob([...parts,...central,end],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'})),a=document.createElement('a');a.href=url;a.download=filename+'.xlsx';a.hidden=true;document.body.append(a);
+ return new Promise((resolve,reject)=>{
+ const done=()=>{a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);resolve();};
+ if(window.parent!==window){const id='excel-'+Date.now()+'-'+Math.random().toString(16).slice(2);let acknowledged=false;const listener=e=>{if(e.source===window.parent&&e.data?.type==='bi:excel-saved'&&e.data.id===id){acknowledged=true;window.removeEventListener('message',listener);done();}};window.addEventListener('message',listener);fetch(url).then(r=>r.arrayBuffer()).then(buffer=>window.parent.postMessage({type:'bi:excel-download',id,filename:filename+'.xlsx',buffer},'*',[buffer])).catch(reject);setTimeout(()=>{window.removeEventListener('message',listener);if(!acknowledged){a.click();done();}},750);}else{a.click();done();}
+ });
 };
