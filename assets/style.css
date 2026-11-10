@@ -30,3 +30,5 @@ body.pcp-report .page-header button[data-theme-toggle]{position:static!important
 
 /* Compact status and source notices between filters and indicators. */
 body.pcp-report #estado{margin:6px 0!important;padding:0!important;min-height:0!important;line-height:1.35}body.pcp-report #pendencias{margin:4px 0 8px!important;padding:5px 8px!important;min-height:0!important;line-height:1.35}body.pcp-report #conteudo{margin-top:0!important;padding-top:0!important}
+
+.export-excel{border:1px solid var(--border);background:var(--card);color:var(--foreground);border-radius:8px;padding:9px 12px;font:inherit;font-size:12px;cursor:pointer;white-space:nowrap}.export-excel:disabled{opacity:.6;cursor:wait}
