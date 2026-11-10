@@ -32,3 +32,5 @@ body.pcp-report .page-header button[data-theme-toggle]{position:static!important
 body.pcp-report #estado{margin:6px 0!important;padding:0!important;min-height:0!important;line-height:1.35}body.pcp-report #pendencias{margin:4px 0 8px!important;padding:5px 8px!important;min-height:0!important;line-height:1.35}body.pcp-report #conteudo{margin-top:0!important;padding-top:0!important}
 
 .export-excel{border:1px solid var(--border);background:var(--card);color:var(--foreground);border-radius:8px;padding:9px 12px;font:inherit;font-size:12px;cursor:pointer;white-space:nowrap}.export-excel:disabled{opacity:.6;cursor:wait}
+
+.export-status{font-size:11px;color:var(--muted-foreground);max-width:240px}.export-status[data-state="success"]{color:#2f7b61}.export-status[data-state="error"]{color:#a0172a}.export-status[data-state="loading"]:before{content:"";display:inline-block;width:10px;height:10px;border:2px solid #ddd;border-top-color:#7a1726;border-radius:50%;margin-right:6px;vertical-align:middle;animation:export-spin .8s linear infinite}@keyframes export-spin{to{transform:rotate(360deg)}}
