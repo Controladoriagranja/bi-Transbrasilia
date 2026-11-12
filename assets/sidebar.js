@@ -28,7 +28,7 @@
                         <span>${item.label}</span>
                     </a>
                 `).join("")}
-            </nav><nav class="pcp-support-nav" aria-label="Suporte Transbrasilia"><a href="#formulas">Ajuda</a></nav>
+            </nav><nav class="pcp-support-nav" aria-label="Suporte Transbrasilia"><a href="ajuda.html">Ajuda</a></nav>
         </aside>
     `;
 
@@ -52,7 +52,6 @@
         document.body.classList.toggle("side-nav-open", open);
     };
 
-    root.querySelector('.pcp-support-nav a')?.addEventListener('click',e=>{e.preventDefault();setOpen(false);document.getElementById('ajuda').showModal();});
     setOpen(false);
 
     rail.addEventListener("click", () => setOpen(true));
