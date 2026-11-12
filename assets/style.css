@@ -38,3 +38,12 @@ body.pcp-report #estado{margin:6px 0!important;padding:0!important;min-height:0!
 /* Menu uniforme nas duas páginas, inclusive no item ativo. */
 body.pcp-report .side-nav-panel{width:min(290px,calc(100vw - 24px))}
 body.pcp-report .side-nav-link{font-size:12px;white-space:nowrap}
+
+/* Ocupação: cinco filtros compactos na mesma linha em telas de computador. */
+body[data-page="ocupacao"] .filter-card{padding:12px 14px}
+body[data-page="ocupacao"] .com-filter-head{margin-bottom:8px}
+body[data-page="ocupacao"] .com-filter-grid{gap:8px 12px}
+body[data-page="ocupacao"] .budget-select-trigger{min-height:36px;padding:8px 10px}
+body[data-page="ocupacao"] .filter-note{margin-top:8px;margin-bottom:0}
+body[data-page="ocupacao"] .budget-select-panel{width:max(100%,230px);max-width:calc(100vw - 40px);box-sizing:border-box}
+@media(min-width:1000px){body[data-page="ocupacao"] .com-filter-grid{grid-template-columns:minmax(110px,150px) minmax(80px,110px) minmax(130px,180px) minmax(180px,260px) minmax(150px,240px)}}
